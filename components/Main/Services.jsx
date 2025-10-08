@@ -6,13 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// --- API Configuration ---
-// NOTE: Replace "" with your actual Pexels API Key.
-const PEXELS_API_KEY =
-  "cpOkgO4qW4ZA3NA64lGsCnsZhBUVHjf5EbWAOdH3YmVYxWkrgf92Per3";
-const PEXELS_API_URL = "https://api.pexels.com/v1/search";
-const IMAGE_FETCH_DELAY_MS = 1000; // Small delay to avoid hitting rate limits immediately on mount
-
 // --- Thematic SVG Icons (JSX Compliant) ---
 const ICON_MAP = {
   Logistics: (
@@ -129,7 +122,7 @@ const ICON_MAP = {
   ),
 };
 
-// --- Services Data: Using Thematic Placeholder Image URLs and Category Names ---
+// --- Services Data: Using Static Images from public/services folder ---
 const SERVICES = [
   {
     id: 1,
@@ -137,7 +130,7 @@ const SERVICES = [
     description:
       "Beside of cargo transportation we may also provide loading & unloading services with professional equipment and experienced team.",
     category: "Logistics",
-    query: "heavy truck loading cargo",
+    imageUrl: "/services/1.jpeg",
   },
   {
     id: 2,
@@ -145,7 +138,7 @@ const SERVICES = [
     description:
       "All types of luggage of passenger are easily portable for us with secure handling and timely delivery across UAE.",
     category: "Delivery",
-    query: "airport luggage delivery van",
+    imageUrl: "/services/2.jpeg",
   },
   {
     id: 3,
@@ -153,7 +146,7 @@ const SERVICES = [
     description:
       "You need to pack your cargo and make it ready for shipment no need to worry, we provide professional packaging services.",
     category: "Logistics",
-    query: "professional industrial packaging",
+    imageUrl: "/services/3.webp",
   },
   {
     id: 4,
@@ -161,7 +154,7 @@ const SERVICES = [
     description:
       "We may also provide wrapping baggage for transportation. Wrapping ensures extra protection during transit.",
     category: "Delivery",
-    query: "luggage wrapping machine",
+    imageUrl: "/services/4.webp",
   },
   {
     id: 5,
@@ -169,7 +162,7 @@ const SERVICES = [
     description:
       "We may provide the transportation of cargo with in UAE with the help of heavy trucks and light trucks as per requirement.",
     category: "Transport",
-    query: "logistics heavy duty truck road",
+    imageUrl: "/services/5.webp",
   },
   {
     id: 6,
@@ -177,7 +170,7 @@ const SERVICES = [
     description:
       "By our transportation facility we may also provide services for furniture removal, relocation and safe delivery.",
     category: "Relocation",
-    query: "furniture removal movers",
+    imageUrl: "/services/6.webp",
   },
   {
     id: 7,
@@ -185,7 +178,7 @@ const SERVICES = [
     description:
       "Your vehicle may need recovery at any time or anywhere we will assist you with professional vehicle recovery services.",
     category: "Recovery",
-    query: "roadside vehicle recovery service",
+    imageUrl: "/services/7.jpeg",
   },
   {
     id: 8,
@@ -193,7 +186,7 @@ const SERVICES = [
     description:
       "We may provide sweet water, TC water, water for gardening, water tanker services with reliable transportation.",
     category: "Water Supply",
-    query: "industrial water tanker truck",
+    imageUrl: "/services/8.jpeg",
   },
   {
     id: 9,
@@ -201,7 +194,7 @@ const SERVICES = [
     description:
       "We provide 5000,1000,2000 gallon capacity of tanker. Sweet water transportation for residential and commercial use.",
     category: "Water Supply",
-    query: "clean water supply truck",
+    imageUrl: "/services/9.jpeg",
   },
   {
     id: 10,
@@ -209,81 +202,9 @@ const SERVICES = [
     description:
       "We provide 5000,1000,2000 gallon capacity of tanker. Waste water transportation with proper disposal methods.",
     category: "Environment",
-    query: "waste water disposal facility",
+    imageUrl: "/services/10.jpeg",
   },
 ];
-
-// --- Pexels API Image Fetching Hook ---
-
-const usePexelsImages = (services) => {
-  const [imageUrls, setImageUrls] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  const fetchImages = useCallback(async () => {
-    if (!PEXELS_API_KEY) {
-      console.error("Pexels API key is missing. Using default placeholders.");
-      setLoading(false);
-      return;
-    }
-
-    const newImageUrls = {};
-    const promises = services.map(async (service, index) => {
-      // Exponential backoff or simple delay to manage API rate limits
-      await new Promise((resolve) =>
-        setTimeout(resolve, index * IMAGE_FETCH_DELAY_MS)
-      );
-
-      try {
-        const response = await fetch(
-          `${PEXELS_API_URL}?query=${encodeURIComponent(
-            service.query
-          )}&per_page=1&orientation=landscape`,
-          {
-            headers: {
-              Authorization: PEXELS_API_KEY,
-            },
-          }
-        );
-        const data = await response.json();
-
-        if (data.photos && data.photos.length > 0) {
-          // Use the medium size for good balance
-          newImageUrls[service.id] = data.photos[0].src.medium;
-        }
-      } catch (error) {
-        console.warn(
-          `Could not fetch image for service ${service.id}: ${error.message}`
-        );
-        // Fallback to a generic placeholder if API fails
-        newImageUrls[
-          service.id
-        ] = `https://placehold.co/300x120/4B5563/FFFFFF?text=${service.query
-          .toUpperCase()
-          .replace(/\s/g, "+")}`;
-      }
-    });
-
-    await Promise.allSettled(promises);
-    setImageUrls(newImageUrls);
-    setLoading(false);
-  }, [services]);
-
-  useEffect(() => {
-    fetchImages();
-  }, [fetchImages]);
-
-  // Merge fetched URLs with service data for easy consumption
-  const servicesWithImages = services.map((service) => ({
-    ...service,
-    imageUrl:
-      imageUrls[service.id] ||
-      `https://placehold.co/300x120/4B5563/FFFFFF?text=${service.query
-        .toUpperCase()
-        .replace(/\s/g, "+")}`,
-  }));
-
-  return { services: servicesWithImages, loading };
-};
 
 // Service Card Component
 const ServiceCard = ({ service, index }) => {
@@ -480,8 +401,9 @@ const Services = () => {
   const subtitleRef = useRef(null);
   const gridRef = useRef(null);
 
-  // Fetch images and update service data
-  const { services: servicesWithImages, loading } = usePexelsImages(SERVICES);
+  // Use static services with images (no loading needed)
+  const servicesWithImages = SERVICES;
+  const loading = false;
 
   // State to control how many services are visible (default: false = first 6)
   const [showAll, setShowAll] = useState(false);
