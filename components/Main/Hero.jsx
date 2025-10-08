@@ -81,15 +81,21 @@ const HeroContent = () => (
         {/* Left Column (Text & Stats) */}
         <div>
           {/* New Tagline: Global focus for a business group */}
-          <p className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
-            Global Reach. Diversified Excellence.
-          </p>
+          <div className="mb-6">
+            <p className="text-base font-semibold tracking-wider text-cyan-600 uppercase">
+              Global Reach. Diversified Excellence.
+            </p>
+          </div>
 
           {/* Unified and powerful headline: BOLD BRAND NAME */}
-          <h1 className="mt-4 text-4xl font-extrabold text-gray-900 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
-            <span className="block text-blue-600">NEW WORLD</span>
-            <span className="block">GROUP.</span>
-          </h1>
+          <div className="relative">
+            <h1 className="mt-4 text-4xl font-extrabold text-gray-900 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
+              <span className="block text-blue-600">
+                NEW WORLD
+              </span>
+              <span className="block">GROUP.</span>
+            </h1>
+          </div>
 
           {/* New Description: Reflects diversified business nature */}
           <p className="mt-6 text-xl text-gray-700 max-w-lg">

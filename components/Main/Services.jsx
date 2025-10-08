@@ -300,39 +300,25 @@ const ServiceCard = ({ service, index }) => {
   return (
     <div
       ref={cardRef}
-      className="ServicesCard group relative bg-white/80 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden transition-all duration-500 hover:border-white/40"
+      className="ServicesCard group relative bg-white/90 backdrop-blur-sm rounded-2xl border border-white/30 overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-white/50"
       style={{
         background:
-          "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.8) 100%)",
-        boxShadow:
-          "0 8px 32px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.1)",
+          "linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
       }}
     >
-      {/* Premium glow effect */}
-      <div
-        className="premium-glow absolute inset-0 opacity-0 transition-opacity duration-300"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(6,182,212,0.1) 100%)",
-        }}
-      />
-
       {/* Hero Image Section */}
       <div className="relative h-48 overflow-hidden">
         <img
           ref={imageRef}
           src={imageUrl}
           alt={service.title}
-          className="w-full h-full object-cover transition-transform duration-700"
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* Professional overlay with gradient */}
+        {/* Professional overlay */}
         <div
           ref={overlayRef}
-          className="absolute inset-0 opacity-70 transition-opacity duration-300"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(30,41,59,0.8) 0%, rgba(51,65,85,0.6) 50%, rgba(71,85,105,0.4) 100%)",
-          }}
+          className="absolute inset-0 bg-slate-900/40"
         />
 
         {/* Category badge */}
@@ -415,20 +401,18 @@ const Services = () => {
   const initializeCardAnimation = useCallback((card, index) => {
     gsap.fromTo(
       card,
-      { y: 60, opacity: 0, scale: 0.95 },
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 0.9,
-        ease: "power3.out",
+        duration: 0.6,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: card,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
+          start: "top 90%",
+          toggleActions: "play none none none",
         },
-        delay: index * 0.08,
+        delay: index * 0.1,
       }
     );
   }, []);
@@ -441,41 +425,41 @@ const Services = () => {
     // Header animations
     gsap.fromTo(
       title,
-      { y: 50, opacity: 0 },
+      { y: 30, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 1,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       }
     );
 
     gsap.fromTo(
       subtitle,
-      { y: 30, opacity: 0 },
+      { y: 20, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
+        duration: 0.6,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: section,
-          start: "top 70%",
-          toggleActions: "play none none reverse",
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
         delay: 0.2,
       }
     );
 
-    // Background wave animation
+    // Subtle background animation
     gsap.to(".wave-bg", {
-      x: "10%", // Slower, more subtle movement
-      duration: 30,
+      x: "5%",
+      duration: 20,
       ease: "none",
       repeat: -1,
       yoyo: true,
@@ -512,10 +496,7 @@ const Services = () => {
   const handleShowAll = () => {
     // Set to true to show all services
     setShowAll(true);
-    // Wait a moment for the new elements to render, then scroll to the grid container
-    setTimeout(() => {
-      gridRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
+    // No aggressive scrolling - let user stay where they are
   };
 
   if (loading) {
