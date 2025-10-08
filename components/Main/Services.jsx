@@ -316,10 +316,7 @@ const ServiceCard = ({ service, index }) => {
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         {/* Professional overlay */}
-        <div
-          ref={overlayRef}
-          className="absolute inset-0 bg-slate-900/40"
-        />
+        <div ref={overlayRef} className="absolute inset-0 bg-slate-900/40" />
 
         {/* Category badge */}
         <div className="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full border border-white/30">

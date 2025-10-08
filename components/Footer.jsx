@@ -151,12 +151,6 @@ const Footer = () => {
                       +971 52 335 5535
                     </a>
                     <span className="mx-2">|</span>
-                    <a
-                      href="tel:+971556832120"
-                      className="hover:text-blue-400 transition-colors duration-200"
-                    >
-                      +971 55 683 2120
-                    </a>
                   </div>
                 </div>
 

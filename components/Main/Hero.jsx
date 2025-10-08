@@ -90,9 +90,7 @@ const HeroContent = () => (
           {/* Unified and powerful headline: BOLD BRAND NAME */}
           <div className="relative">
             <h1 className="mt-4 text-4xl font-extrabold text-gray-900 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
-              <span className="block text-blue-600">
-                NEW WORLD
-              </span>
+              <span className="block text-blue-600">NEW WORLD</span>
               <span className="block">GROUP.</span>
             </h1>
           </div>

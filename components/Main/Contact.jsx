@@ -108,7 +108,7 @@ const Contact = () => {
                 {
                   icon: <Phone className="w-6 h-6" />,
                   title: "Phone Numbers",
-                  content: "+971 52 335 5535\n+971 55 683 2120",
+                  content: "+971 52 335 5535",
                   link: "tel:+971523355535",
                 },
                 {

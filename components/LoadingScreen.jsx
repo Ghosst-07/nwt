@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const LoadingScreen = ({ onLoadingComplete }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -8,7 +8,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
   useEffect(() => {
     // Smooth progress animation
     const progressInterval = setInterval(() => {
-      setProgress(prev => {
+      setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(progressInterval);
           return 100;
@@ -39,7 +39,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="text-center relative z-10">
         {/* Sophisticated logo area */}
         <div className="mb-12">
@@ -47,13 +47,15 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             {/* Outer rotating ring */}
             <div className="absolute inset-0 border-2 border-white/20 rounded-full"></div>
             <div className="absolute inset-0 border-t-2 border-white rounded-full animate-spin"></div>
-            
+
             {/* Inner content */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white text-lg font-bold tracking-wider">NWG</div>
+              <div className="text-white text-lg font-bold tracking-wider">
+                NWG
+              </div>
             </div>
           </div>
-          
+
           {/* Company name with elegant typography */}
           <h1 className="text-3xl font-light text-white mb-2 tracking-wider">
             NEW WORLD GROUP
@@ -62,17 +64,17 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             Premium Experience Loading
           </p>
         </div>
-        
+
         {/* Minimal progress indicator */}
         <div className="w-64 mx-auto">
           <div className="h-px bg-white/20 rounded-full overflow-hidden">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-blue-400 to-cyan-300 transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
           <p className="text-white/60 text-xs mt-3 font-light">
-            {progress < 100 ? 'Preparing your experience...' : 'Welcome'}
+            {progress < 100 ? "Preparing your experience..." : "Welcome"}
           </p>
         </div>
       </div>
