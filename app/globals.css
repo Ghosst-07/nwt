@@ -40,6 +40,20 @@ body {
   scroll-padding-top: 80px; /* Account for fixed header */
 }
 
+/* Mobile viewport fix for better height handling */
+@supports (height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
+/* Ensure proper header clearance for mobile */
+@media (max-width: 768px) {
+  body {
+    scroll-padding-top: 64px; /* Smaller header on mobile */
+  }
+}
+
 /* Ensure smooth scrolling for all containers */
 * {
   scroll-behavior: smooth;

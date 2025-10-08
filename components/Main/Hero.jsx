@@ -51,7 +51,7 @@ const HeroContent = () => (
   // Section takes full viewport height and centers content
   <section
     id="home"
-    className={`relative flex items-center justify-center h-screen bg-sky-50`}
+    className={`relative flex items-center justify-center min-h-screen bg-sky-50`}
   >
     {/* Absolute Background SVG Element (Water Flow/Wave) */}
     <div className="absolute inset-0 overflow-hidden opacity-30">
@@ -76,7 +76,7 @@ const HeroContent = () => (
       </svg>
     </div>
 
-    <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 w-full h-full flex items-center pt-16 lg:pt-20">
+    <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 w-full h-full flex items-center pt-24 pb-8 sm:pt-28 lg:pt-24">
       <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
         {/* Left Column (Text & Stats) */}
         <div>
@@ -86,7 +86,7 @@ const HeroContent = () => (
           </p>
 
           {/* Unified and powerful headline: BOLD BRAND NAME */}
-          <h1 className="mt-4 text-5xl font-extrabold text-gray-900 lg:mt-8 sm:text-7xl xl:text-8xl leading-tight">
+          <h1 className="mt-4 text-4xl font-extrabold text-gray-900 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
             <span className="block text-blue-600">NEW WORLD</span>
             <span className="block">GROUP.</span>
           </h1>
