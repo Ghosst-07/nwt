@@ -28,7 +28,7 @@ const Footer = () => {
     e.preventDefault();
     const target = document.querySelector(href);
     if (target) {
-      smoothScrollTo(target, 1);
+      smoothScrollTo(target, 0.5); // Faster scroll duration
     }
   };
 

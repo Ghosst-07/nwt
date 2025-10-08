@@ -35,10 +35,17 @@ const Header = () => {
   // GSAP-powered smooth scroll function
   const handleSmoothScroll = (e, href) => {
     e.preventDefault();
+
+    // More robust scroll handling with faster response
     const target = document.querySelector(href);
     if (target) {
-      smoothScrollTo(target, 1);
+      smoothScrollTo(target, 0.5); // Faster scroll duration
+    } else {
+      // Fallback: try to scroll using href directly
+      console.warn(`Target not found for ${href}, trying direct scroll`);
+      smoothScrollTo(href, 0.5);
     }
+
     setIsMenuOpen(false); // Close mobile menu if open
   };
 

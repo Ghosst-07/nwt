@@ -56,7 +56,7 @@ export default function AboutUsSection() {
 
   return (
     <section
-      id="about"
+      id="about-section"
       className="relative py-20 bg-gradient-to-br from-sky-50 via-white to-cyan-50 overflow-hidden"
     >
       {/* Background Pattern - matching hero theme */}
@@ -253,7 +253,7 @@ export default function AboutUsSection() {
             >
               <div className="text-center">
                 <div className="text-2xl font-bold text-cyan-600 mb-1">
-                  160+
+                  600+
                 </div>
                 <div className="text-sm text-gray-600">Happy Clients</div>
               </div>
