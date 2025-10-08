@@ -324,6 +324,8 @@ export default function AboutUsSection() {
               "NB WATER PURIFIER LLC",
               "AFRAH GENERAL LAND TRANSPORT LLC",
               "AL SAQAR AL SAREE DRAINING SERVICES LLC",
+              "NEW WORLD TRANSPORTATION SERVICES LLC",
+              "ARABIAN MIDDLE EAST GENERAL LAND TRANSPORT LLC",
             ].map((company, index) => (
               <motion.div
                 key={index}

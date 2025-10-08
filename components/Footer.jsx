@@ -54,6 +54,8 @@ const Footer = () => {
     "NB WATER PURIFIER LLC",
     "AFRAH GENERAL LAND TRANSPORT LLC",
     "AL SAQAR AL SAREE DRAINING SERVICES LLC",
+    "NEW WORLD TRANSPORTATION SERVICES LLC",
+    "ARABIAN MIDDLE EAST GENERAL LAND TRANSPORT LLC",
   ];
 
   const socialLinks = [
@@ -151,16 +153,29 @@ const Footer = () => {
                       +971 52 335 5535
                     </a>
                     <span className="mx-2">|</span>
+                    <a
+                      href="tel:+9710565661114"
+                      className="hover:text-blue-400 transition-colors duration-200"
+                    >
+                      +971 056 566 1114
+                    </a>
+                    <span className="mx-2">|</span>
+                    <a
+                      href="tel:+9710503361502"
+                      className="hover:text-blue-400 transition-colors duration-200"
+                    >
+                      +971 050 336 1502
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <a
-                    href="mailto:info@newworldgroup.ae"
+                    href="mailto:info@newworldtransportationservices.com"
                     className="text-gray-300 text-sm hover:text-blue-400 transition-colors duration-200"
                   >
-                    info@newworldgroup.ae
+                    info@newworldtransportationservices.com
                   </a>
                 </div>
               </div>

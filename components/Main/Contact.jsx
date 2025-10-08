@@ -108,14 +108,15 @@ const Contact = () => {
                 {
                   icon: <Phone className="w-6 h-6" />,
                   title: "Phone Numbers",
-                  content: "+971 52 335 5535",
+                  content:
+                    "+971 52 335 5535 | +971 056 566 1114 | +971 050 336 1502",
                   link: "tel:+971523355535",
                 },
                 {
                   icon: <Mail className="w-6 h-6" />,
                   title: "Email Address",
-                  content: "info@newworldgroup.ae",
-                  link: "mailto:info@newworldgroup.ae",
+                  content: "info@newworldtransportationservices.com",
+                  link: "mailto:info@newworldtransportationservices.com",
                 },
                 {
                   icon: <Clock className="w-6 h-6" />,
