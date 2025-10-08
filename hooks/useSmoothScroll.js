@@ -14,62 +14,36 @@ export const useSmoothScroll = () => {
 
     // Smooth scroll configuration
     const setupSmoothScroll = () => {
-      // Create scroll trigger for smooth scrolling
-      ScrollTrigger.create({
-        trigger: document.body,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self) => {
-          // Add momentum-based easing
-          gsap.to(window, {
-            scrollTo: {
-              y: self.scroll(),
-              autoKill: false,
-            },
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        },
-      });
+      // Much simpler approach - just enable smooth scrolling without intercepting wheel events
+      // This prevents conflicts with other scroll listeners and animations
 
-      // Override default scroll behavior for smoother experience
       let isScrolling = false;
+      let scrollTimeout;
 
       const handleWheel = (e) => {
+        // Don't prevent default - let browser handle normal scrolling
+        // Only add momentum for better feel
         if (isScrolling) return;
 
-        e.preventDefault();
+        clearTimeout(scrollTimeout);
         isScrolling = true;
 
-        const currentScroll = window.pageYOffset;
-        const scrollAmount = e.deltaY * 2; // Adjust scroll sensitivity
-        const targetScroll = Math.max(
-          0,
-          Math.min(
-            document.body.scrollHeight - window.innerHeight,
-            currentScroll + scrollAmount
-          )
-        );
-
-        gsap.to(window, {
-          scrollTo: {
-            y: targetScroll,
-            autoKill: false,
-          },
-          duration: 0.8,
-          ease: "power2.out",
-          onComplete: () => {
-            isScrolling = false;
-          },
-        });
+        // Add a subtle momentum effect without intercepting the scroll
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 100);
       };
 
-      // Add smooth wheel scrolling
-      document.addEventListener("wheel", handleWheel, { passive: false });
+      // Add smooth wheel scrolling with passive listener to avoid conflicts
+      document.addEventListener("wheel", handleWheel, { passive: true });
+
+      // Use CSS smooth scrolling as backup
+      document.documentElement.style.scrollBehavior = "smooth";
 
       // Cleanup function
       return () => {
         document.removeEventListener("wheel", handleWheel);
+        document.documentElement.style.scrollBehavior = "auto";
         ScrollTrigger.killAll();
       };
     };
@@ -84,9 +58,34 @@ export const useSmoothScroll = () => {
   const smoothScrollTo = (target, duration = 1) => {
     if (typeof window === "undefined") return;
 
+    // More reliable scroll to element
+    let targetElement;
+
+    if (typeof target === "string") {
+      targetElement = document.querySelector(target);
+    } else if (target instanceof Element) {
+      targetElement = target;
+    } else {
+      // If target is a number (scroll position)
+      gsap.to(window, {
+        scrollTo: {
+          y: target,
+          autoKill: false,
+        },
+        duration,
+        ease: "power2.inOut",
+      });
+      return;
+    }
+
+    if (!targetElement) {
+      console.warn("Scroll target not found:", target);
+      return;
+    }
+
     gsap.to(window, {
       scrollTo: {
-        y: target,
+        y: targetElement,
         autoKill: false,
         offsetY: 80, // Account for fixed header
       },

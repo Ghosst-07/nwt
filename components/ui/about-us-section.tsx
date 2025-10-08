@@ -203,12 +203,16 @@ export default function AboutUsSection() {
                 alt="New World Group Operations"
                 className="w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <h4 className="text-xl font-semibold mb-2">
+
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/70 to-transparent" />
+
+              {/* Centered Text Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+                <h4 className="text-2xl font-semibold mb-2">
                   Trusted Excellence
                 </h4>
-                <p className="text-white/90">
+                <p className="text-white/90 text-lg">
                   20+ years of reliable service across UAE
                 </p>
               </div>
@@ -266,10 +270,10 @@ export default function AboutUsSection() {
           viewport={{ once: true, margin: "-10%" }}
         >
           {[
-            { number: "5", label: "Trusted Years", icon: Award },
-            { number: "160+", label: "Happy Clients", icon: Users },
-            { number: "27+", label: "Staff Members", icon: Building2 },
-            { number: "160+", label: "Tasks Completed", icon: CheckCircle },
+            { number: "20", label: "Trusted Years", icon: Award },
+            { number: "600+", label: "Happy Clients", icon: Users },
+            { number: "100+", label: "Staff Members", icon: Building2 },
+            { number: "600+", label: "Tasks Completed", icon: CheckCircle },
           ].map((stat, index) => (
             <motion.div
               key={index}
