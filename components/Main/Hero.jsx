@@ -50,6 +50,7 @@ const Counter = ({ from = 0, to, duration = 1.5, suffix = "" }) => {
 const HeroContent = () => (
   // Section takes full viewport height and centers content
   <section
+    id="home"
     className={`relative flex items-center justify-center h-screen bg-sky-50`}
   >
     {/* Absolute Background SVG Element (Water Flow/Wave) */}

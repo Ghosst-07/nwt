@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
+import { useSmoothScrollContext } from "./SmoothScrollWrapper";
 
 // --- Configuration Data (Easy to Edit) ---
-const LOGO_SRC = "https://placehold.co/150x40/0E7490/FFFFFF?text=NWG";
+const LOGO_SRC = "/logonwt.jpeg";
 const NAV_LINKS = [
+  { title: "Home", href: "#home" },
   { title: "Services", href: "#services" },
-  { title: "Sectors", href: "#sectors" },
-  { title: "Projects", href: "#projects" },
+  { title: "About", href: "#about-section" },
   { title: "Contact", href: "#contact" },
 ];
 
@@ -20,6 +21,7 @@ const LIGHT_BG_SCROLLED = "bg-sky-50 bg-opacity-95"; // Background when scrolled
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+  const { smoothScrollTo } = useSmoothScrollContext();
 
   // Effect to handle scroll change for sticky background
   useEffect(() => {
@@ -30,14 +32,25 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // GSAP-powered smooth scroll function
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      smoothScrollTo(target, 1);
+    }
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
+
   const NavSection = () => (
     <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
       {NAV_LINKS.map((link) => (
         <a
           key={link.title}
           href={link.href}
+          onClick={(e) => handleSmoothScroll(e, link.href)}
           title={link.title}
-          className="text-base text-gray-800 transition-all duration-200 hover:text-blue-600"
+          className="text-base text-gray-800 transition-all duration-200 hover:text-blue-600 cursor-pointer"
         >
           {link.title}
         </a>
@@ -81,7 +94,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" title="Logo" className="flex">
+            <a
+              href="#home"
+              onClick={(e) => handleSmoothScroll(e, "#home")}
+              title="New World Group"
+              className="flex cursor-pointer"
+            >
               <img
                 className="w-auto h-8"
                 src={LOGO_SRC}
@@ -104,12 +122,13 @@ const Header = () => {
 
           {/* Desktop CTA Button */}
           <a
-            href="#"
-            title="Get Started"
-            className={`hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-base transition-all duration-200 font-semibold rounded-full ${ACCENT_CYAN}`}
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            title="Get Quote"
+            className={`hidden lg:inline-flex items-center justify-center px-5 py-2.5 text-base transition-all duration-200 font-semibold rounded-full ${ACCENT_CYAN} cursor-pointer`}
             role="button"
           >
-            Explore Solutions
+            Get Quote
           </a>
         </div>
       </div>
@@ -127,21 +146,21 @@ const Header = () => {
             <a
               key={link.title}
               href={link.href}
-              onClick={() => setIsMenuOpen(false)} // Close menu on link click
-              className="block text-base text-gray-800 transition-all duration-200 hover:text-blue-600"
+              onClick={(e) => handleSmoothScroll(e, link.href)}
+              className="block text-base text-gray-800 transition-all duration-200 hover:text-blue-600 cursor-pointer"
             >
               {link.title}
             </a>
           ))}
           {/* Mobile CTA Button (same as desktop CTA) */}
           <a
-            href="#"
-            title="Get Started"
-            className={`block w-full text-center px-5 py-2.5 text-base transition-all duration-200 font-semibold rounded-full ${ACCENT_CYAN}`}
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            title="Get Quote"
+            className={`block w-full text-center px-5 py-2.5 text-base transition-all duration-200 font-semibold rounded-full ${ACCENT_CYAN} cursor-pointer`}
             role="button"
-            onClick={() => setIsMenuOpen(false)}
           >
-            Explore Solutions
+            Get Quote
           </a>
         </div>
       </div>
