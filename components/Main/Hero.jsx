@@ -8,6 +8,7 @@ import {
   animate,
 } from "framer-motion";
 import { InfiniteSliderHorizontal } from "../ImageSlider";
+import { useSmoothScrollContext } from "../SmoothScrollWrapper";
 
 // --- Configuration Data (Easy to Edit) ---
 // Updated to reflect "New World Group" branding.
@@ -15,7 +16,10 @@ const HERO_IMG_SRC =
   "https://placehold.co/600x400/BFDBFE/0E7490?text=Global+Logistics+and+Construction+Graphic"; // Updated image text
 
 // --- Custom Counter Component ---
-
+// --- Utility Classes ---
+const ACCENT_CYAN =
+  "bg-cyan-500 hover:bg-cyan-600 focus:bg-cyan-600 text-white";
+const LIGHT_BG_SCROLLED = "bg-sky-50 bg-opacity-95";
 /**
  * Counts up to a target number when scrolled into view.
  * Uses Framer Motion's useMotionValue and animate API.
@@ -47,7 +51,7 @@ const Counter = ({ from = 0, to, duration = 1.5, suffix = "" }) => {
 
 // --- Hero Content Component ---
 
-const HeroContent = () => (
+const HeroContent = ({ handleSmoothScroll }) => (
   // Section takes full viewport height and centers content
   <section
     id="home"
@@ -89,9 +93,11 @@ const HeroContent = () => (
 
           {/* Unified and powerful headline: BOLD BRAND NAME */}
           <div className="relative">
-            <h1 className="mt-4 text-4xl font-extrabold text-gray-900 lg:mt-8 sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
-              <span className="block text-blue-600">NEW WORLD</span>
-              <span className="block">GROUP.</span>
+            <h1 className="mt-4 text-3xl font-extrabold text-gray-900 lg:mt-8 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight">
+              <span className="block text-blue-600">
+                New World Transportation{" "}
+              </span>
+              <span className="block">Services LLC.</span>
             </h1>
           </div>
 
@@ -101,6 +107,15 @@ const HeroContent = () => (
             construction, and trading, building a better tomorrow globally.
           </p>
 
+          <a
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, "#contact")}
+            title="Get Quote"
+            className={`mt-10 ml-2 hidden lg:inline-flex items-center justify-center px-10 py-2.5 text-base transition-all duration-200 font-semibold rounded-full ${ACCENT_CYAN} cursor-pointer`}
+            role="button"
+          >
+            Get Quote
+          </a>
           {/* New Stats Section - Now uses Counter component */}
           <div className="grid grid-cols-3 gap-6 mt-12 sm:mt-16 lg:mt-20 border-t border-gray-200 pt-6">
             <div className="py-3 pr-4 border-r border-gray-200">
@@ -139,10 +154,24 @@ const HeroContent = () => (
 // --- Main Hero Component ---
 
 const Hero = () => {
+  const { smoothScrollTo } = useSmoothScrollContext();
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+
+    // More robust scroll handling with faster response
+    const target = document.querySelector(href);
+    if (target) {
+      smoothScrollTo(target, 0.5); // Faster scroll duration
+    } else {
+      // Fallback: try to scroll using href directly
+      console.warn(`Target not found for ${href}, trying direct scroll`);
+      smoothScrollTo(href, 0.5);
+    }
+  };
   return (
     // The main container uses relative positioning
     <div className="bg-white font-sans relative">
-      <HeroContent />
+      <HeroContent handleSmoothScroll={handleSmoothScroll} />
       {/* Added extra content height for scrolling effect to test sticky header */}
     </div>
   );

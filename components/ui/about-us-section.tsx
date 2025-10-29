@@ -93,7 +93,7 @@ export default function AboutUsSection() {
             className="inline-block px-4 py-2 bg-cyan-100 text-cyan-600 rounded-full text-sm font-medium mb-4"
             variants={itemVariants}
           >
-            About New World Group
+            About New World Transportation Services LLC
           </motion.span>
           <motion.h2
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"

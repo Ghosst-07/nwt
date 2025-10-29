@@ -78,7 +78,8 @@ const Contact = () => {
             GET IN TOUCH
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-            <span className="text-blue-600">Contact</span> New World Group
+            <span className="text-blue-600">Contact</span> New World
+            Transportation Services LLC
           </h2>
           <motion.div
             className="w-24 h-1 bg-blue-600 mx-auto mb-6"
@@ -186,7 +187,7 @@ const Contact = () => {
                 height="300"
                 className="w-full"
                 frameBorder={0}
-                title="New World Group Location"
+                title="New World Transportation Services LLC Location"
                 marginHeight={0}
                 marginWidth={0}
                 scrolling="no"

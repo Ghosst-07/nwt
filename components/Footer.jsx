@@ -306,8 +306,8 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} New World Group. All rights
-                reserved.
+                © {new Date().getFullYear()} New World Transportation Services
+                LLC. All rights reserved.
               </p>
               <p className="text-gray-500 text-xs mt-1">
                 Reliable, Affordable & the Best - Consistently good in

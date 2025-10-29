@@ -104,13 +104,13 @@ const Header = () => {
             <a
               href="#home"
               onClick={(e) => handleSmoothScroll(e, "#home")}
-              title="New World Group"
+              title="New World Transportation Services LLC."
               className="flex cursor-pointer"
             >
               <img
                 className="w-auto h-8"
                 src={LOGO_SRC}
-                alt="New World Group Logo"
+                alt="New World Transportation Services LLC Logo"
               />
             </a>
           </div>

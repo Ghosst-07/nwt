@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "New World Group - Premier Transportation & Logistics",
+  title:
+    "New World Transportation Services LLC - Premier Transportation & Logistics",
   description:
     "Leading transportation and logistics solution provider in the UAE",
 };

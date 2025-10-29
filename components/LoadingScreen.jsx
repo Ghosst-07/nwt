@@ -58,10 +58,11 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
           {/* Company name with elegant typography */}
           <h1 className="text-3xl font-light text-white mb-2 tracking-wider">
-            NEW WORLD GROUP
+            New World Transportation Services LLC
           </h1>
           <p className="text-blue-200/80 text-sm font-medium tracking-widest uppercase">
-            Premium Experience Loading
+            Specialized in Water Transportation, Dewatering & Waste Management
+            across UAE
           </p>
         </div>
 
