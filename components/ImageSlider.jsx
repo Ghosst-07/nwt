@@ -4,19 +4,19 @@ import Image from "next/image";
 const images = [
   {
     title: "Image 1",
-    image: "/water.jpg",
+    image: "/services/1.jpg",
   },
   {
     title: "Image 2",
-    image: "/delivery.webp",
+    image: "/services/2.webp",
   },
   {
     title: "Image 3",
-    image: "/cargo.webp",
+    image: "/services/3.jpg",
   },
   {
     title: "Image 4",
-    image: "/trucks.jpeg",
+    image: "/services/4.webp",
   },
   {
     title: "Image 5",

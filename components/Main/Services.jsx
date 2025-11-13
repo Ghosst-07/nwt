@@ -130,7 +130,7 @@ const SERVICES = [
     description:
       "Beside of cargo transportation we may also provide loading & unloading services with professional equipment and experienced team.",
     category: "Logistics",
-    imageUrl: "/services/1.jpeg",
+    imageUrl: "/services/1.jpg",
   },
   {
     id: 2,
@@ -138,7 +138,7 @@ const SERVICES = [
     description:
       "All types of luggage of passenger are easily portable for us with secure handling and timely delivery across UAE.",
     category: "Delivery",
-    imageUrl: "/services/2.jpeg",
+    imageUrl: "/services/2.webp",
   },
   {
     id: 3,
@@ -146,7 +146,7 @@ const SERVICES = [
     description:
       "You need to pack your cargo and make it ready for shipment no need to worry, we provide professional packaging services.",
     category: "Logistics",
-    imageUrl: "/services/3.webp",
+    imageUrl: "/services/3.jpg",
   },
   {
     id: 4,
@@ -162,7 +162,7 @@ const SERVICES = [
     description:
       "We may provide the transportation of cargo with in UAE with the help of heavy trucks and light trucks as per requirement.",
     category: "Transport",
-    imageUrl: "/services/5.webp",
+    imageUrl: "/services/5.png",
   },
   {
     id: 6,
@@ -170,7 +170,7 @@ const SERVICES = [
     description:
       "By our transportation facility we may also provide services for furniture removal, relocation and safe delivery.",
     category: "Relocation",
-    imageUrl: "/services/6.webp",
+    imageUrl: "/services/6.jpeg",
   },
   {
     id: 7,
@@ -178,7 +178,7 @@ const SERVICES = [
     description:
       "Your vehicle may need recovery at any time or anywhere we will assist you with professional vehicle recovery services.",
     category: "Recovery",
-    imageUrl: "/services/7.jpeg",
+    imageUrl: "/services/7.webp",
   },
   {
     id: 8,
@@ -186,7 +186,7 @@ const SERVICES = [
     description:
       "We may provide sweet water, TC water, water for gardening, water tanker services with reliable transportation.",
     category: "Water Supply",
-    imageUrl: "/services/8.jpeg",
+    imageUrl: "/services/8.jpg",
   },
   {
     id: 9,
@@ -194,7 +194,7 @@ const SERVICES = [
     description:
       "We provide 5000,1000,2000 gallon capacity of tanker. Sweet water transportation for residential and commercial use.",
     category: "Water Supply",
-    imageUrl: "/services/9.jpeg",
+    imageUrl: "/services/9.jpg",
   },
   {
     id: 10,
@@ -202,7 +202,7 @@ const SERVICES = [
     description:
       "We provide 5000,1000,2000 gallon capacity of tanker. Waste water transportation with proper disposal methods.",
     category: "Environment",
-    imageUrl: "/services/10.jpeg",
+    imageUrl: "/services/10.png",
   },
 ];
 
