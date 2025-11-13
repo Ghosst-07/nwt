@@ -204,6 +204,54 @@ const SERVICES = [
     category: "Environment",
     imageUrl: "/services/10.png",
   },
+  {
+    id: 11,
+    title: "Water Transportation Services",
+    description:
+      "Efficient and reliable water transportation services for residential, commercial, and industrial needs.",
+    category: "Water Supply",
+    imageUrl: "/services/11.jpg",
+  },
+  {
+    id: 12,
+    title: "De Watering Services",
+    description:
+      "Professional dewatering services to manage and remove excess water from construction sites and other areas.",
+    category: "Environment",
+    imageUrl: "/services/12.png",
+  },
+  {
+    id: 13,
+    title: "Portable Water Supply",
+    description:
+      "Convenient portable water supply solutions for events, construction sites, and emergency situations.",
+    category: "Water Supply",
+    imageUrl: "/services/13.webp",
+  },
+  {
+    id: 14,
+    title: "Sewage Water Removal",
+    description:
+      "Safe and efficient sewage water removal services for residential and commercial properties.",
+    category: "Environment",
+    imageUrl: "/services/14.png",
+  },
+  {
+    id: 15,
+    title: "Passanger Pickup & Drop Services",
+    description:
+      "Reliable passenger pickup and drop services for airports, hotels, and events.",
+    category: "Transport",
+    imageUrl: "/services/15.webp",
+  },
+  {
+    id: 16,
+    title: "TSE Irrigation Water",
+    description:
+      "Transportation of Treated Sewage Effluent (TSE) water for irrigation and landscaping purposes.",
+    category: "Water Supply",
+    imageUrl: "/services/16.jpg",
+  },
 ];
 
 // Service Card Component
