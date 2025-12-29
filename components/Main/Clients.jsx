@@ -18,14 +18,12 @@ const Clients = () => {
           </h2>
 
           <p className="mt-4 text-lg text-gray-500 max-w-3xl mx-auto">
-            Our reliable logistics and construction solutions power critical
-            operations for companies around the world. We specialize in scalable
-            transport, infrastructure, and supply chain services tailored to
-            diverse industry needs. With decades of experience and a dedicated
-            workforce, we deliver on time—every time. From cross-border shipping
-            to large-scale relocations, our partners trust us with their most
-            complex challenges. Innovation, precision, and a customer-first
-            mindset define our approach to every project we undertake.
+            Our dependable water transportation and support services play a
+            vital role in critical operations across infrastructure,
+            construction, and municipal projects. We specialize in water tanker
+            services, dewatering operations, and the transportation of sweet,
+            potable, TSE irrigation, and sewage water—delivered with efficiency,
+            safety, and scalability.
           </p>
         </div>
         <InfiniteSlider gap={24} reverse className="w-[100%] h-full">

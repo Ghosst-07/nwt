@@ -124,9 +124,11 @@ const Footer = () => {
               </div>
 
               <p className="text-gray-300 mb-6 leading-relaxed">
-                A powerful conglomerate driving innovation across logistics,
-                construction, and trading, building a better tomorrow globally
-                with 20+ years of trusted excellence.
+                A trusted transportation and services company specializing in
+                water tanker services, dewatering, sewage transportation, and
+                the supply of potable and sweet water. New World Transportation
+                Services LLC delivers safe, reliable, and efficient solutions,
+                supporting infrastructure, industries, and community needs.
               </p>
 
               {/* Contact Info */}

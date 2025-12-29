@@ -8,15 +8,15 @@ const images = [
   },
   {
     title: "Image 2",
-    image: "/services/2.webp",
+    image: "/services/TSE-Water-Tanker-Dubai.jpg",
   },
   {
     title: "Image 3",
-    image: "/services/3.jpg",
+    image: "/services/TSE-Water-Tanker-Dubai.jpg",
   },
   {
     title: "Image 4",
-    image: "/services/4.webp",
+    image: "/services/Diesel-supply-in-dubai.jpg",
   },
   {
     title: "Image 5",
@@ -28,7 +28,7 @@ const images = [
   },
   {
     title: "Image 2 second row",
-    image: "/delivery.webp",
+    image: "/services/Salt-water-tankers-dubai.jpg",
   },
   {
     title: "Image 3 second row",
@@ -48,7 +48,7 @@ const images = [
   },
   {
     title: "Image 2 third row",
-    image: "/delivery.webp",
+    image: "/services/Salt-water-tankers-dubai.jpg",
   },
   {
     title: "Image 3 third row",

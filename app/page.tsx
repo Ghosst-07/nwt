@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Main/Hero";
+import TankerCapacity from "@/components/TankerCapacity";
 import Services from "@/components/Main/Services";
 import Clients from "@/components/Main/Clients";
 import AboutUsSection from "@/components/ui/about-us-section";
@@ -16,7 +17,6 @@ export default function Home() {
     setIsLoading(false);
   };
 
-
   return (
     <>
       <LoadingScreen onLoadingComplete={handleLoadingComplete} />
@@ -24,6 +24,7 @@ export default function Home() {
         <>
           <Header />
           <Hero />
+          <TankerCapacity />
           <Services />
           <Clients />
           <AboutUsSection />

@@ -603,8 +603,9 @@ const Services = () => {
           </h2>
 
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Experience excellence in logistics with our comprehensive suite of
-            premium services, engineered for the modern business landscape.
+            Reliable water tanker services providing dewatering and the
+            transportation of sweet, potable, and TSE irrigation water for
+            diverse project needs.
           </p>
         </div>
 

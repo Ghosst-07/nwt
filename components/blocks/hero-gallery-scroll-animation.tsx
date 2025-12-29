@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { VariantProps, cva } from "class-variance-authority"
+import * as React from "react";
+import { VariantProps, cva } from "class-variance-authority";
 import {
   HTMLMotionProps,
   MotionValue,
   motion,
   useScroll,
   useTransform,
-} from "motion/react"
+} from "motion/react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const bentoGridVariants = cva(
   "relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right",
@@ -41,32 +41,32 @@ const bentoGridVariants = cva(
       variant: "default",
     },
   }
-)
+);
 
 interface ContainerScrollContextValue {
-  scrollYProgress: MotionValue<number>
+  scrollYProgress: MotionValue<number>;
 }
 const ContainerScrollContext = React.createContext<
   ContainerScrollContextValue | undefined
->(undefined)
+>(undefined);
 function useContainerScrollContext() {
-  const context = React.useContext(ContainerScrollContext)
+  const context = React.useContext(ContainerScrollContext);
   if (!context) {
     throw new Error(
       "useContainerScrollContext must be used within a ContainerScroll Component"
-    )
+    );
   }
-  return context
+  return context;
 }
 const ContainerScroll = ({
   children,
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-  const scrollRef = React.useRef<HTMLDivElement>(null)
+  const scrollRef = React.useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-  })
+  });
   return (
     <ContainerScrollContext.Provider value={{ scrollYProgress }}>
       <div
@@ -77,8 +77,8 @@ const ContainerScroll = ({
         {children}
       </div>
     </ContainerScrollContext.Provider>
-  )
-}
+  );
+};
 
 const BentoGrid = React.forwardRef<
   HTMLDivElement,
@@ -90,15 +90,15 @@ const BentoGrid = React.forwardRef<
       className={cn(bentoGridVariants({ variant }), className)}
       {...props}
     />
-  )
-})
-BentoGrid.displayName = "BentoGrid"
+  );
+});
+BentoGrid.displayName = "BentoGrid";
 
 const BentoCell = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
   ({ className, style, ...props }, ref) => {
-    const { scrollYProgress } = useContainerScrollContext()
-    const translate = useTransform(scrollYProgress, [0.1, 0.9], ["-35%", "0%"])
-    const scale = useTransform(scrollYProgress, [0, 0.9], [0.5, 1])
+    const { scrollYProgress } = useContainerScrollContext();
+    const translate = useTransform(scrollYProgress, [0.1, 0.9], ["-35%", "0%"]);
+    const scale = useTransform(scrollYProgress, [0, 0.9], [0.5, 1]);
 
     return (
       <motion.div
@@ -107,20 +107,20 @@ const BentoCell = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
         style={{ translate, scale, ...style }}
         {...props}
       ></motion.div>
-    )
+    );
   }
-)
-BentoCell.displayName = "BentoCell"
+);
+BentoCell.displayName = "BentoCell";
 
 const ContainerScale = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
   ({ className, style, ...props }, ref) => {
-    const { scrollYProgress } = useContainerScrollContext()
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+    const { scrollYProgress } = useContainerScrollContext();
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     const position = useTransform(scrollYProgress, (pos) =>
       pos >= 0.6 ? "absolute" : "fixed"
-    )
+    );
     return (
       <motion.div
         ref={ref}
@@ -134,8 +134,8 @@ const ContainerScale = React.forwardRef<HTMLDivElement, HTMLMotionProps<"div">>(
         }}
         {...props}
       />
-    )
+    );
   }
-)
-ContainerScale.displayName = "ContainerScale"
-export { ContainerScroll, BentoGrid, BentoCell, ContainerScale }
+);
+ContainerScale.displayName = "ContainerScale";
+export { ContainerScroll, BentoGrid, BentoCell, ContainerScale };
