@@ -103,8 +103,11 @@ const HeroContent = ({ handleSmoothScroll }) => (
 
           {/* New Description: Reflects diversified business nature */}
           <p className="mt-6 text-xl text-gray-700 max-w-lg">
-            A powerful conglomerate driving innovation across logistics,
-            construction, and trading, building a better tomorrow globally.
+            A trusted transportation and services company specializing in water
+            tanker services, dewatering, sewage transportation, and the supply
+            of potable and sweet water. New World Transportation Services LLC
+            delivers safe, reliable, and efficient solutions, supporting
+            infrastructure, industries, and community needs.
           </p>
 
           <a
