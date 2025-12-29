@@ -11,9 +11,12 @@ const TankerCapacity = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 py-8 overflow-hidden">
+    <section
+      className="relative bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 py-8 overflow-hidden"
+      aria-label="Water Tanker Fleet Capacities"
+    >
       {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10" aria-hidden="true">
         <div
           className="absolute inset-0"
           style={{
@@ -25,11 +28,12 @@ const TankerCapacity = () => {
       <div className="relative">
         {/* Header text */}
         <div className="text-center mb-6">
-          <h3 className="text-white text-xl md:text-2xl font-bold tracking-wide">
-            🚛 Available Tanker Capacities
-          </h3>
+          <h2 className="text-white text-xl md:text-2xl font-bold tracking-wide">
+            🚛 Available Water Tanker Capacities
+          </h2>
           <p className="text-cyan-100 text-sm md:text-base mt-2">
-            We have a diverse fleet ready to serve your needs
+            Professional water tanker fleet from 2,000 to 15,000 gallons - Ready
+            to serve Dubai, Abu Dhabi & across UAE
           </p>
         </div>
 
@@ -50,7 +54,10 @@ const TankerCapacity = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
+                      aria-label="Water tanker truck icon"
+                      role="img"
                     >
+                      <title>Water Tanker Truck</title>
                       <path d="M3 16h18v2H3zM5 8h14v6H5z" />
                       <circle cx="7" cy="19" r="2" />
                       <circle cx="17" cy="19" r="2" />
@@ -82,7 +89,10 @@ const TankerCapacity = () => {
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
+                      aria-label="Water tanker truck icon"
+                      role="img"
                     >
+                      <title>Water Tanker Truck</title>
                       <path d="M3 16h18v2H3zM5 8h14v6H5z" />
                       <circle cx="7" cy="19" r="2" />
                       <circle cx="17" cy="19" r="2" />
